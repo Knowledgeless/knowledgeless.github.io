@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %}{% endblock title %} </title>
+
+    <!-- user links -->
+    <link rel="stylesheet" href="{% static "base.css" %} ">
+    {% block links %}{% endblock links %}
+
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <header>
+        <a href="/" class="logo"><span>H</span>emal</a>
+
+        <ul class="navbar" id="navbar">
+            
+            <li><a href="/home" class="{% if active == 'home' %}active{% endif %}">Home</a></li>
+            <li><a href="/design" class="{% if active == 'design' %}active{% endif %}">Designs</a></li>
+            <li><a href="/contact" class="{% if active == 'contact' %}active{% endif %}">Contact</a></li>
+        </ul>
+
+    </header>
+
+
+    {% block contents %}{% endblock contents %}
+
+
+    <div class="footer">
+        <div class="text">
+            &copy; nazmulhossainxi9@gmail.com All Rights Reserved.
+        </div>
+    </div>
+
+</body>
+</html>

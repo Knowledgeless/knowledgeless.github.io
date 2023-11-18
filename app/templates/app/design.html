@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Nazmul | Design{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static "app/css/design.css" %}">
+{% endblock links %}
+
+{% block contents %}
+    <section class="box">
+        <div class="text">
+            My Designs
+        </div>
+        
+        <div class="cards">
+            <div class="images">
+                {% for i in folder1 %}
+                    <img src="{% static "app/img/university/" %}{{i}}" alt="">
+                {% endfor %}
+            </div>
+            <div class="images">    
+                {% for i in folder2 %}
+                    <img src="{% static "app/img/practice/" %}{{i}}" alt="">
+                {% endfor %}
+            </div>
+            <div class="images">
+                {% for i in folder3 %}
+                    <img src="{% static "app/img/bdosn/" %}{{i}}" alt="">
+                {% endfor %}
+            </div>
+            
+        </div>
+        
+    </section>
+{% endblock contents %}
+

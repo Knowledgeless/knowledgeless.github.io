@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Nazmul | Home{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static "app/css/home.css" %}">
+{% endblock links %}
+
+{% block contents %}
+    <section class="home">
+        <div class="home-text">
+            <h1>Md. Nazmul Hossain Hemal</h1>
+            <span>Graphics Designer</span>
+            <p>Hello there! I'm a passionate graphics designer with a keen eye for aesthetics and a love for transforming ideas into visually stunning creations. I thrive on the challenge of turning concepts into compelling visual stories that captivate and engage audiences. <br><br>
+
+            With a background in Computer Science & Engineering, I bring a unique blend of artistic talent and technical expertise to every project. My design philosophy revolves around the belief that great design not only looks good but also communicates effectively. Whether it's a sleek corporate identity, a vibrant marketing campaign, or an eye-catching illustration, I strive to create visuals that leave a lasting impression. <br>
+            </p>
+            <div class="main-btn">
+                <a href="{% static "/app/pdf/NazmulHossainCV.pdf" %}" download class="btn">Download CV</a>
+                <a href="/contact" class="btn2">Hire Me Now</a>
+            </div>
+        </div>
+        <div class="home-img">
+            <img src="{% static "/app/img/profile-01.png" %}" alt="">
+        </div>
+    </section>
+{% endblock contents %}
+
+
+
+

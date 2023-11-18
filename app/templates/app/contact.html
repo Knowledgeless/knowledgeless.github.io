@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Nazmul | Contact{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static "app/css/contact.css" %}">
+{% endblock links %}
+
+{% block contents %}
+    <section class="home">
+        <div class="info">
+            <h2>Address</h2><br>
+            <p>
+                Sholhashia, Gafargaon <br>
+                Mymensingh
+            </p><br><br>
+            <h2>Contact</h2><br>
+            <p>
+                +8801685768413 <br>
+                +8801775676966 <br>
+            </p><br><br>
+            <h2>Email</h2><br>
+            <p>
+                nazmulhossainxi9@gmail.com
+            </p><br><br>
+            <div class="social">
+                <a href="https://www.github.com/knowledgeless"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.facebook.com/nazmul.xi"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/shadow_x_goblin/"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            
+            
+        </div>
+        <div class="forms">
+
+            {% load widget_tweaks %}
+
+            <form method="post" novalidate>
+            {% csrf_token %}
+
+            {% for hidden_field in form.hidden_fields %}
+                {{ hidden_field }}
+            {% endfor %}
+
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                {% for error in form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+                </div>
+            {% endif %}
+
+            {% for field in form.visible_fields %}
+                <div class="form-group">
+
+                {% if form.is_bound %}
+                    {% if field.errors %}
+                    {% render_field field class="form-control is-invalid" %}
+                    {% for error in field.errors %}
+                        <div class="invalid-feedback">
+                        {{ error }}
+                        </div>
+                    {% endfor %}
+                    {% else %}
+                    {% render_field field class="form-control is-valid" %}
+                    {% endif %}
+                {% else %}
+                    {% render_field field class="form-control" %}
+                {% endif %}
+
+                {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-warning">Submit</button>
+            </form>
+        </div>
+    </section>
+{% endblock contents %}
+
+
+
+
